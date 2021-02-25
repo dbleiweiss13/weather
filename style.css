@@ -1,0 +1,38 @@
+.headingDiv {
+    background-color: #272C31;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 30px;
+    margin: 0px;
+}
+
+.hideAll {
+    opacity: 0;
+}
+
+.sideHeading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#searchList {
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+#today {
+    margin-top: 10px;
+}
+
+.forecastTitle {
+    margin-top: 10px;
+}
+
+#forecastContainer > div > div > div > img {
+    width: 60px;
+}
