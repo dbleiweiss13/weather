@@ -46,19 +46,19 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey,
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey,
             dataType: "json"
         }).then(function (data) {
             $.ajax({
                 type: "GET",
-                url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=" + apiKey,
+                url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=" + apiKey,
                 dataType: "json"
             }).then(function (uvData) {
                 console.log(uvData)
                 let uvIndex = uvData.value
 
                 $("#currCityName").text(data.name + " (" + new Date().toLocaleDateString() + ")");
-                $("#currCityName").append($("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"))
+                $("#currCityName").append($("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"))
 
                 $("#temperature").text("Wind Speed: " + data.wind.speed + " MPH");
                 $("#humidity").text("Humidity: " + data.main.humidity + "%");
@@ -84,7 +84,7 @@ $(document).ready(function () {
     function getForecast(city) {
         $.ajax({
             type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey,
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey,
             dataType: "json"
         }).then(function (data) {
             $("#forecastContainer").empty()
@@ -99,7 +99,7 @@ $(document).ready(function () {
                     div2.addClass("card text-white bg-primary")
 
                     var date = $("<p>").text(new Date(e.dt_txt).toLocaleDateString())
-                    var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + e.weather[0].icon + ".png")
+                    var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + e.weather[0].icon + ".png")
                     var temp = $("<p>").text("Temp: " + e.main.temp_max + " °F")
                     var humidity = $("<p>").text("Humidity: " + e.main.humidity + "%")
 
